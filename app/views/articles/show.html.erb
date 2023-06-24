@@ -1,9 +1,10 @@
 <h1>Showing selected article</h1>
 
-<p>Title: <%= @article.title %></p>
-<p>Description: <%= @article.description %></p>
-<p><%= button_to 'Edit', edit_article_path(@article),method: :get %></p>
+<p>Title:
+  <%= @article.title %></p>
+<p>Description:
+  <%= @article.description %></p>
 
-<p><%= button_to 'Delete', article_path(@article),method: :delete, data: {confirm:"Are you sure?"} %></p>
-
-<p><%= button_to 'Back to articles listing', articles_path,method: :get %></p>
+<%= link_to "Edit this article", edit_article_path(@article) %>
+|
+<%= link_to "Back to articles listing", articles_path %>
