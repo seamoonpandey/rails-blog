@@ -9,6 +9,15 @@
         </div>
         <div class='article-body'>
           <%= truncate(article.description, length: 100) %>
+          <div class='article-meta-details'>
+            <small>
+              Created by:<%= article.user.username %>
+              <%= time_ago_in_words(article.created_at) %>
+              ago, last updated:
+              <%= time_ago_in_words(article.updated_at) %>
+              ago
+            </small>
+          </div>
         </div>
         <div class='article-actions '>
           <div>
@@ -17,7 +26,7 @@
             class: "btn btn-xs btn-primary" %>
           </div>
           <div>
-            <%= link_to "Delete this article",
+            <%= button_to "Delete this article",
             article_path(article),
             method: :delete,
             class: "btn btn-xs btn-danger",
