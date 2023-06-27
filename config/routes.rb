@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create'
   resources :users, except: [:new]
 
+  get 'login', to: 'sessions#new'
+  post 'login', to:'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   #this line gave us a new article path , patch path , delete path, show path, index path simply by
   resources :articles
 end
