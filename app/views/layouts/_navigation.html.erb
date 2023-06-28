@@ -19,14 +19,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Articles", articles_path %></li>
-        <li><%= link_to "New article", new_article_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "New article", new_article_path %></li>
+          <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+          <li><%= link_to "View Profile", user_path(current_user) %></li>
+        <% end %>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
       <div class='navbar-form navbar-right'>
         <% if logged_in? %>
           <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>

@@ -1,4 +1,8 @@
 <div class="center jumbotron">
   <h1>Rails Blog</h1>
-  <%= link_to "Sign up now", "#", class: "btn btn-primary btn-lg " %>
+  <% if logged_in? %>
+    <%= link_to "Go to Articles", articles_path, class: "btn btn-success btn-lg " %>
+  <% else %>
+    <%= link_to "Sign up now", signup_path, class: "btn btn-primary btn-lg " %>
+  <% end %>
 </div>
