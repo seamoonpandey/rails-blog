@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   #this line gave us a new article path , patch path , delete path, show path, index path simply by
   resources :articles
+
+  resources :categories , except: [:destroy]
 end
